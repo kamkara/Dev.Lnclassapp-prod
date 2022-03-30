@@ -41,14 +41,14 @@
                     <a
                       href="#home"
                       class="ud-menu-scroll text-base text-dark lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
-                      Home
+                      Accueil
                     </a>
                   </li>
                   <li class="relative group">
                     <a
                       href="#about"
                       class=" ud-menu-scroll text-base text-dark lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-7 xl:ml-12" >
-                      About
+                      Mission
                     </a>
                   </li>
                   <li class="relative group">
@@ -69,7 +69,7 @@
                         xl:ml-12
                       "
                     >
-                      Pricing
+                      Prix
                     </a>
                   </li>
                   <li class="relative group">
@@ -90,7 +90,7 @@
                         xl:ml-12
                       "
                     >
-                      Team
+                      Equipe
                     </a>
                   </li>
                   <li class="relative group">
@@ -119,38 +119,12 @@
               </nav>
             </div>
             <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
-              <a
-                href="signin.html"
-                class="
-                  text-base
-                  font-medium
-                  text-white
-                  hover:opacity-70
-                  py-3
-                  px-7
-                  loginBtn
-                "
-              >
-                Sign In
-              </a>
-              <a
-                href="signup.html"
-                class="
-                  text-base
-                  font-medium
-                  text-white
-                  bg-white bg-opacity-20
-                  rounded-lg
-                  py-3
-                  px-6
-                  hover:bg-opacity-100 hover:text-dark
-                  signUpBtn
-                  duration-300
-                  ease-in-out
-                "
-              >
-                Sign Up
-              </a>
+               <%= link_to "Se Conneceter", new_user_session_path,
+                class:" text-base font-medium text-white hover:opacity-70 py-3 px-7 loginBtn" %>
+             
+             <%= link_to "Créer votre compte", new_user_registration_path, class:" text-base font-medium text-white bg-white bg-opacity-20 rounded-lg
+                 py-3 px-3 hover:bg-opacity-100 hover:text-dark signUpBtn duration-300 ease-in-out" %>
+             
             </div>
           </div>
         </div>

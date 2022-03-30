@@ -10,8 +10,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    
+     <!-- Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+     <!-- WOW Script -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
      <script>
       new WOW().init();
@@ -22,13 +23,10 @@
 
   </head>
 
-  <body>
-    <main class="mx-auto ">
+  <body class="mx-auto">
      <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </main>
-     
+      <%= yield %>     
   </body>
 </html>
 
