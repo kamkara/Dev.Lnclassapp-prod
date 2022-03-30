@@ -16,7 +16,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 
 gem 'friendly_id'
-#gem 'devise'
+gem 'devise'
 
 
 
