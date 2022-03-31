@@ -46,6 +46,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string "level_name"
       t.string "material_name"
       t.string "school_name"
+      t.string "status", default:"Student", null: false
+    
+      
 
       t.timestamps null: false
     end

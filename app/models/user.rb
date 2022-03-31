@@ -16,43 +16,47 @@ class User < ApplicationRecord
 
 
   attr_writer :logged
-  #enum :role, student: "student", teacher: "teacher", team: "team", default: "student"
+  #enum :status, student: "student", teacher: "teacher", team: "team", default: "student"
   
   ################## VALIDATES  ###############
-   before_validation :user_student?,  on: :create
+  before_validation :user_data_present?,  on: :create
+  before_validation :user_student?,  on: :create
+  before_validation :user_teacher?
+  before_validation :user_team?
    
-  
-   validates :first_name, :last_name, :full_name, :email, :password,
-              :contact, :role, presence: true
-    
-   validates :full_name,presence: true,
+  validates :full_name,presence: true,
               format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ },
               length: { minimum:5, maximum: 30,
               message: "%{value} verifier votre nom complet"}
 
-   validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
+  validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
               message: "%{ value} verifier votre nom numéro est 10 chiffres"}
-              
-   validates :role, inclusion: { in: %w(Student Teacher Team),
-                    message: "%{value} acces non identifier" }
+       
 
    ############# CUSTOMIZE ###############""
-   
+   def user_data_present?
+    validates :first_name, :last_name, :full_name, :email, :password,
+              :contact, :status, :city_name, presence: true
+    validates :status, inclusion: { in: %w(Student Teacher Team),
+                   message: "%{value} acces non identifier" }
+   end
+
    def user_student?
-    if self.role == "Student"
+    if self.status == "Student"
       self.email = "#{self.matricule}@gmail.com" # if user.role == "Student"
       self.password = "#{self.contact}"
     end    
   end
-
-  ################## LOGGED  #########
-  def logged
-    @logged || self.matricule || self.email
+  
+  def user_teacher?
+    if self.status == "Teacher"
+      validates :level_name, presence: false
+    end
   end
-
   def user_team?
-    if self.role != "Team"
-      validates :city_name, presence: true, on: :create
+    if self.status == "Team"
+      validates :level_name, presence: false
+      self.city_name = "HQ-Lnclass"
     end
   end
 
@@ -61,17 +65,22 @@ class User < ApplicationRecord
   end  
   
   def slug
-    if self.role === "Student"
+    if self.status === "Student"
       self.slug = "civ #{self.full_name} #{self.level_name}"
-    elsif self.role === "Teacher"
+    elsif self.status === "Teacher"
       self.slug = "civ #{self.full_name} #{self.material_name}"
-    elsif self.role === "Team"
+    elsif self.status === "Team"
       self.slug = "team #{self.full_name}"
     else
       self.slug = "civ #{self.full_name}"
-    
     end
   end
+  ################## LOGGED  #########
+  def logged
+    @logged || self.matricule || self.email
+  end
+
+
 
   ################## SLUG ###############
   extend FriendlyId
