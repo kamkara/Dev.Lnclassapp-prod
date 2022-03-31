@@ -107,11 +107,10 @@
               </nav>
             </div>
             <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
-               <%= link_to "Se Conneceter", new_user_session_path,
-                class:" text-base font-medium text-white hover:opacity-70 py-3 px-7 loginBtn" %>
+                           
+               <%= link_to "Dashboard", "/dashboard-admin", class:" button is-primary is-outlined mr-2 text-white" %>
              
-             <%= link_to "Créer votre compte", new_user_registration_path, class:" text-base font-medium text-white bg-white bg-opacity-20 rounded-lg
-                 py-3 px-3 hover:bg-opacity-100 hover:text-dark signUpBtn duration-300 ease-in-out" %>
+             <%= link_to 'Deconnecter', destroy_user_session_path, method: :delete, class:"button is-danger is-outlined " %>
              
             </div>
           </div>
