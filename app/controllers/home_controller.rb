@@ -4,7 +4,7 @@ class HomeController < ApplicationController
                 :Enable_Material
   
   def index
-    #@FeedCourses = Course.all.order('created_at desc')
+    @FeedCourses = Course.all.order('created_at desc')
     #@FeedExercices  =  Exercice.all
   end
 
