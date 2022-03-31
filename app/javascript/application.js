@@ -3,6 +3,11 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 
+// application.js
+import "trix"
+import "@rails/actiontext"
+
+
 (function () {
   "use strict";
 
@@ -110,3 +115,5 @@ import "controllers"
     scrollTo(document.documentElement);
   };
 })();
+import "trix"
+import "@rails/actiontext"

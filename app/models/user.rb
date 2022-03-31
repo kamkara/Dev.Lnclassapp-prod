@@ -8,7 +8,7 @@ class User < ApplicationRecord
 ###############   RELATIONS ###################
   has_many :levels
   has_many :materials
-  #has_many :courses
+  has_many :courses
   #has_many :exercices
   #has_many :questions
   #has_many :results
