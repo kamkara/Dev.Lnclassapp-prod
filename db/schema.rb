@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_31_100810) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_105317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "courses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "level_name"
+    t.string "material_name"
+    t.text "contentImg"
+    t.string "slug"
+    t.string "teacher_name"
+    t.boolean "published"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_courses_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -78,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_31_100810) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
 end
