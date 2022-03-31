@@ -60,6 +60,39 @@
 <!-- Role -->
 <%= f.hidden_field :status, value:"Student" %>  
 
+<!-- N° matricule -->
+ <div class="mb-2">
+    <label class="label">Etablissement:</label>
+    <div class="control">
+      <%= f.text_field :school_name, placeholder:"Etablissement ...",  class:"rounded-md" %>
+    </div>
+  </div>
+<!-- Terms -->
+  <div class="field">
+  <div class="control">
+    <label class="checkbox">
+    <%= f.check_box :terms %>
+
+     Accepter les <%= link_to 'termes', "#", class:"underline font-semibold" %> et <%= link_to "Conditions d'utilisation", "#", class:"font-semibold" %>
+    </label>
+  </div>
+</div>
+
+<!-- Gender -->
+<div class="field">
+<p class="">Je suis :</p>
+  <div class="control">
+    <label class="radio" >
+    <%= f.radio_button :gender, :Femme, checked: true %>
+     Une Femme
+    </label>
+    <label class="radio">
+    <%= f.radio_button :gender, :Homme %>     
+     Un Homme
+    </label>
+  </div>
+</div>
+
   <div class="actions">
     <%= f.submit "Créer le compte" , class:"button is-info" %>
   </div>
@@ -147,14 +180,6 @@
     </div>
   </div>
 </div>
-
-<div class="field">
-  <label class="label">Message</label>
-  <div class="control">
-    <textarea class="textarea" placeholder="Textarea"></textarea>
-  </div>
-</div>
-
 <div class="field">
   <div class="control">
     <label class="checkbox">
@@ -176,6 +201,14 @@
     </label>
   </div>
 </div>
+
+<div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <textarea class="textarea" placeholder="Textarea"></textarea>
+  </div>
+</div>
+
 
 <div class="field is-grouped">
   <div class="control">

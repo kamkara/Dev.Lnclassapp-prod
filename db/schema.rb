@@ -37,22 +37,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_191638) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "full_name"
     t.string "matricule"
-    t.string "gender"
+    t.string "gender", default: "", null: false
     t.string "payment"
     t.string "slug"
     t.string "avatar_profil"
     t.string "contact", default: "", null: false
     t.string "contact_money"
     t.string "opt_money"
-    t.string "city_name"
+    t.string "city_name", default: "", null: false
     t.string "level_name"
     t.string "material_name"
-    t.string "school_name"
+    t.string "school_name", default: "", null: false
     t.string "status", default: "Student", null: false
+    t.string "terms"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

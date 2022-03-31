@@ -19,8 +19,9 @@ class User < ApplicationRecord
   #enum :status, student: "student", teacher: "teacher", team: "team", default: "student"
   
   ################## VALIDATES  ###############
-  before_validation :user_data_present?,  on: :create
-  before_validation :user_student?,  on: :create
+  #validate :user_data_present?,  on: :create
+  #validate :user_student_or_teacher?
+  before_validation :user_student?
   before_validation :user_teacher?
   before_validation :user_team?
    
@@ -32,14 +33,26 @@ class User < ApplicationRecord
   validates :contact, uniqueness: true, numericality: { only_integer: true }, length: { minimum:10,
               message: "%{ value} verifier votre nom numéro est 10 chiffres"}
        
+    
+   ############# CUSTOMIZE ###############
+   #Validate the data presente before all
+   validates :first_name, :last_name, :full_name, :email, :password,
+   :contact, :status, :city_name, :school_name, :gender, :terms, presence: true
+   
+   validates :status, inclusion: { in: %w(Student Teacher Team),
+    message: "%{value} acces non identifier" }
+  #def user_data_present?
+  #end
 
-   ############# CUSTOMIZE ###############""
-   def user_data_present?
-    validates :first_name, :last_name, :full_name, :email, :password,
-              :contact, :status, :city_name, presence: true
-    validates :status, inclusion: { in: %w(Student Teacher Team),
-                   message: "%{value} acces non identifier" }
-   end
+  #validates  :level_name, :school_name, presence: true
+  #validates  :school_name, presence: true, length: {maximum: 50}
+  #validates  :material_name, presence: true, length: {maximum: 50}
+  #validates  :school_name, presence: true, length: {maximum: 50}
+    #def user_student_or_teacher?(self.status)
+    #  if self.status == "Student"
+        
+     # end
+    #end
 
    def user_student?
     if self.status == "Student"
@@ -51,6 +64,7 @@ class User < ApplicationRecord
   def user_teacher?
     if self.status == "Teacher"
       validates :level_name, presence: false
+      validates :material_name, presence: true
     end
   end
   def user_team?
