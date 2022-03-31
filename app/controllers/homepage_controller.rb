@@ -1,5 +1,6 @@
 class HomepageController < ApplicationController
+
   def index
-    redirect_to feed_path if :user_signed_in?
+    redirect_to feed_path
   end
 end
