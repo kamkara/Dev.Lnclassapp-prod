@@ -12,7 +12,9 @@ module Play
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
-    #
+    
+    # Add detect web wrawler 
+    config.middleware.use Rack::CrawlerDetect
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

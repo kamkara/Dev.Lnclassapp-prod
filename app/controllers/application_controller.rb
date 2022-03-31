@@ -1,21 +1,28 @@
 class ApplicationController < ActionController::Base
-
+  
+  before_action :record_page_view
   # Add sign up params
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
     
     #After sign in
-     def after_sign_in_path_for(resource)
+    def after_sign_in_path_for(resource)
         redirect_to feed_path if: :user_signed_in?
     end
-     def after_sign_up_path_for(resource)
+    
+    def after_sign_up_path_for(resource)
         if user_signed_in?
          feed_path
         else
          root_path
         end
     end
-  
+
+    def record_page_view
+      unless request.is_crawler?
+        ActiveAnalytics.record_request(request)
+      end
+    end
 
 
 

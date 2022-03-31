@@ -17,6 +17,8 @@ gem "puma", "~> 5.0"
 
 gem 'friendly_id'
 gem 'devise'
+gem 'active_analytics'
+gem 'crawler_detect'
 
 
 
