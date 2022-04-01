@@ -19,9 +19,7 @@ gem 'friendly_id'
 gem 'devise'
 gem 'active_analytics'
 gem 'crawler_detect'
-
-
-
+gem 'jquery-rails'
 
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

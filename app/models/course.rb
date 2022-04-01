@@ -10,8 +10,7 @@ self.ignored_columns = ["material_id"]
   #RICH_TEXTT EDITOR
 
   ################## SLUG ###############
-  validates :title, :content, :published,
-            :level_name, :material_name,
+  validates :title, :content, :level_name, :material_name,
             :user_id, :slug, presence: true
 
   def slugged_custom

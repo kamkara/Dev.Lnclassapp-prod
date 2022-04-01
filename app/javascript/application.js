@@ -7,6 +7,9 @@ import "controllers"
 import "trix"
 import "@rails/actiontext"
 
+// rails ujs to fix logout not redirect to home page
+//= require jquery3
+//= require jquery_ujs
 
 
 // function to navbar
