@@ -54,7 +54,7 @@ class User < ApplicationRecord
      # end
     #end
 
-   def user_student?
+  def user_student?
     if self.status == "Student"
       self.email = "#{self.matricule}@gmail.com" # if user.role == "Student"
       self.password = "#{self.contact}"

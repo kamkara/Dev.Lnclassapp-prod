@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
- #before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[team]
   before_action :Enable_Level, 
                 :Enable_Material
   
@@ -8,6 +8,9 @@ class HomeController < ApplicationController
     #@FeedExercices  =  Exercice.all
   end
 
+  def team
+    
+  end
   
   private
     def Enable_Level
