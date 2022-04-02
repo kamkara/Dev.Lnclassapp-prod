@@ -67,15 +67,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "answer_questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "answered_questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "answer_id", null: false
     t.uuid "question_id", null: false
     t.uuid "result_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_answer_questions_on_answer_id"
-    t.index ["question_id"], name: "index_answer_questions_on_question_id"
-    t.index ["result_id"], name: "index_answer_questions_on_result_id"
+    t.index ["answer_id"], name: "index_answered_questions_on_answer_id"
+    t.index ["question_id"], name: "index_answered_questions_on_question_id"
+    t.index ["result_id"], name: "index_answered_questions_on_result_id"
   end
 
   create_table "answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -203,9 +203,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "answer_questions", "answers"
-  add_foreign_key "answer_questions", "questions"
-  add_foreign_key "answer_questions", "results"
+  add_foreign_key "answered_questions", "answers"
+  add_foreign_key "answered_questions", "questions"
+  add_foreign_key "answered_questions", "results"
   add_foreign_key "answers", "questions"
   add_foreign_key "courses", "users"
   add_foreign_key "exercices", "courses"

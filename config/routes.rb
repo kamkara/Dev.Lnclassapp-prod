@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-  resources :results
-  resources :answers
-  resources :questions
-  resources :exercices
- 
-
+  
   mount ActiveAnalytics::Engine, at: "analytics" 
   root to:'homepage#index'
   get "feed", to:'home#index'
   get "team", to:'home#team'
   
-
+  
   #Course
   get "courses-show", to:"courses#show"
   get "course-list", to:"courses#index"
@@ -30,7 +25,7 @@ Rails.application.routes.draw do
     post '/publish', to: 'exercices#publish'
   end
 
-
+  
   resources :exercices, except: [:new, :show, :edit, :create, :update, :destroy, :index] do
     member do
       delete 'delete', to: 'exercices#destroy'
@@ -47,6 +42,7 @@ Rails.application.routes.draw do
             :levels,
             :materials,
             :materials, execept: %i[new]
+
   ######### USER DATA #########
   devise_scope :user do
     get 'profile/edit'    => 'devise/registrations#edit',   :as => :edit_user_registration
