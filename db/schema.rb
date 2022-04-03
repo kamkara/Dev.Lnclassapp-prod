@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_03_104100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_courses_on_created_at"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -115,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_exercices_on_course_id"
+    t.index ["created_at"], name: "index_exercices_on_created_at"
     t.index ["user_id"], name: "index_exercices_on_user_id"
   end
 
@@ -163,6 +165,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
     t.uuid "exercice_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_results_on_created_at"
     t.index ["exercice_id"], name: "index_results_on_exercice_id"
     t.index ["user_id"], name: "index_results_on_user_id"
   end
@@ -197,6 +200,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_121106) do
     t.string "terms"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_users_on_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
