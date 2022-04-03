@@ -3,7 +3,7 @@
         <div class="flex -mx-4 items-center justify-between relative">
           <div class="px-4 w-60 max-w-full">
             <%= link_to root_path, class:"w-full header-logo" do %>
-            <p class="font-bold text-lg"> <span class="text-white">Lnclass</span></p>
+            <p class="font-bold text-lg text-white">Lnclass</p>
             <% end %>
             
           </div>
@@ -27,12 +27,13 @@
                 class=" absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none " >
                 <ul class="blcok lg:flex">
                   <li class="relative group">
-                    <a
-                      href="#home"
-                      class="ud-menu-scroll text-base text-dark lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0">
-                      Accueil
-                    </a>
+                    <%= link_to "Accueil", root_path, class:"ud-menu-scroll font-bold 
+                            lg:text-white lg:group-hover:opacity-70 lg:group-hover:text-white 
+                            group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex 
+                            mx-8 lg:mr-0" %>
+                    
                   </li>
+                  <!-- 
                   <li class="relative group">
                     <a
                       href="#about"
@@ -40,27 +41,14 @@
                       Mission
                     </a>
                   </li>
+                  -->
                   <li class="relative group">
-                    <a
-                      href="#pricing"
-                      class="
-                        ud-menu-scroll
-                        text-base text-dark
-                        lg:text-white
-                        lg:group-hover:opacity-70
-                        lg:group-hover:text-white
-                        group-hover:text-primary
-                        py-2
-                        lg:py-6 lg:inline-flex lg:px-0
-                        flex
-                        mx-8
-                        lg:mr-0 lg:ml-7
-                        xl:ml-12
-                      "
-                    >
-                      Prix
-                    </a>
+                    <%= link_to "S'abonnez", "#", class:" ud-menu-scroll font-bold lg:text-white
+                       lg:group-hover:opacity-70 lg:group-hover:text-white group-hover:text-primary py-2 
+                       lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-7 xl:ml-12"%>
+                      
                   </li>
+                  <!-- 
                   <li class="relative group">
                     <a
                       href="#team"
@@ -100,10 +88,10 @@
                         xl:ml-12
                       "
                     >
-                      Contact
+                    Contact
                     </a>
                   </li>
-                  
+                  -->
                 </ul>
               </nav>
             </div>
