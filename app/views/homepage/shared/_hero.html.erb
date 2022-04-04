@@ -6,56 +6,29 @@
         <div class="flex flex-wrap items-center -mx-4">
           <div class="w-full px-4">
             <div
-              class="
-                hero-content
-                text-center
-                max-w-[780px]
-                mx-auto
-                wow
-                fadeInUp
-              "
-              data-wow-delay=".2s"
-            >
+              class=" hero-content text-center max-w-[780px] mx-auto wow fadeInUp" data-wow-delay=".2s">
               <h1 class=" text-white font-bold
                   text-3xl sm:text-4xl md:text-[45px] leading-snug sm:leading-snug md:leading-snug mb-8" >
                 Le choix vers le Bac avec confiance
               </h1>
               <p
                 class=" text-base sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed mx-auto mb-10 text-[#e4e4e4] max-w-[600px] " >
-                Multidisciplinary Web Template Built with Your Favourite
-                Technology - HTML Bootstrap, Tailwind and React NextJS.
+                Avec Lnclass Prépare ton Bac en :
+                Math - SVT - Physique-Chimie - Histoire-Géo - Philo - Français, Anglais, All/Esp.
               </p>
               <ul class="flex flex-wrap items-center justify-center mb-10">
                 <li>
-                  <a
-                    href="#"
-                    class="  py-4  px-6  sm:px-10  inline-flex items-center
+                  <%= link_to new_user_registration_path,
+                    class:"  py-4  px-6  sm:px-10  inline-flex items-center
                     justify-center text-center text-dark text-base  bg-white
                      hover:text-primary hover:shadow-lg font-medium
-                     rounded-lg transition duration-300 ease-in-out">
+                     rounded-lg transition duration-300 ease-in-out" do %>
                     Créer votre compte
-                  </a>
+                  <% end %>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    target="_blank"
-                    class="
-                      text-base
-                      font-medium
-                      text-white
-                      py-4
-                      px-6
-                      sm:px-10
-                      flex
-                      items-center
-                      hover:opacity-70
-                      transition
-                      duration-300
-                      ease-in-out
-                    "
-                  >
-                    Star on Github
+                  <%= link_to new_user_session_path, class:" text-base font-medium text-white py-4 px-6 sm:px-10 flex items-center hover:opacity-70 transition duration-300 ease-in-out" do %>
+                   Se Connecter
                     <span class="pl-2">
                       <svg
                         width="20"
@@ -68,7 +41,7 @@
                         />
                       </svg>
                     </span>
-                  </a>
+                  <% end %>
                 </li>
               </ul>
               <div class="text-center wow fadeInUp" data-wow-delay=".3s">
@@ -83,7 +56,7 @@
               data-wow-delay=".25s"
             >
               <div class="mt-16">
-                <%= image_tag "hero/hero-image.jpg" ,alt:"hero", class:"max-w-full mx-auto rounded-t-xl rounded-tr-xl" %>
+                <%= image_tag "HomePage/bac-admin.jpg" ,alt:"hero", class:"max-w-full mx-auto rounded-t-xl rounded-tr-xl" %>
               </div>
               <div class="absolute z-[-1] bottom-0 -left-9">
                 <svg
@@ -91,8 +64,7 @@
                   height="106"
                   viewBox="0 0 134 106"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                  xmlns="http://www.w3.org/2000/svg">
                   <circle
                     cx="1.66667"
                     cy="104"
@@ -845,13 +817,7 @@
                     transform="rotate(-90 31 31.0003)"
                     fill="white"
                   />
-                  <circle
-                    cx="45.6667"
-                    cy="74.6668"
-                    r="1.66667"
-                    transform="rotate(-90 45.6667 74.6668)"
-                    fill="white"
-                  />
+                  <circle cx="45.6667" cy="74.6668" r="1.66667" transform="rotate(-90 45.6667 74.6668)" fill="white"/>
                   <circle
                     cx="45.6667"
                     cy="31.0003"
