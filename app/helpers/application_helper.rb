@@ -47,8 +47,8 @@ module ApplicationHelper
     end
     
     #role
-  def currentUserRole?(current_user)
-    case current_user.role
+  def currentUserStatus?(current_user)
+    case current_user.status
     when "Student"
       ":student?"
     when "Teacher"
