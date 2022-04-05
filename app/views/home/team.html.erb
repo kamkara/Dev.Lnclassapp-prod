@@ -28,6 +28,21 @@
       </div>
     </div>
     
+  <!-- Email  -->
+    <div class="">
+      <label class="label">Email:</label>
+      <div class="control">
+        <%= f.email_field :email, placeholder:"Votre Email ...", class:"input rounded-md" %>
+      </div>
+    </div>
+    
+  <!-- Password  -->
+    <div class="">
+      <label class="label">Mot de passe:</label>
+      <div class="control">
+        <%= f.password_field :password, placeholder:"*******", class:"input rounded-md" %>
+      </div>
+    </div>
     
     <!-- Role -->
     <%= f.hidden_field :status, value:"Team" %>

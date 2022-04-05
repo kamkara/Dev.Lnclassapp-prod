@@ -18,13 +18,25 @@ class User < ApplicationRecord
   attr_writer :logged
   #enum :status, student: "student", teacher: "teacher", team: "team", default: "student"
   
+  
+  
+  
   ################## VALIDATES  ###############
   #validate :user_data_present?,  on: :create
   #validate :user_student_or_teacher?
   before_validation :user_student?
   before_validation :user_teacher?
   before_validation :user_team?
-   
+  
+  ################## BEFORE SAVE  #########
+  before_validation do
+    self.contact            = contact.strip.squeeze(" ")
+    self.matricule            = matricule.strip.squeeze(" ")
+    self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
+    self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
+  end
+
+  
   validates :full_name,presence: true,
               format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ },
               length: { minimum:5, maximum: 30,
@@ -56,20 +68,21 @@ class User < ApplicationRecord
 
   def user_student?
     if self.status == "Student"
-      self.email = "#{self.matricule}@gmail.com" # if user.role == "Student"
+      self.email = "#{self.matricule}@gmail.com"
       self.password = "#{self.contact}"
     end    
   end
   
   def user_teacher?
     if self.status == "Teacher"
-      validates :level_name, presence: false
+      self.level_name = "Tles"
       validates :material_name, presence: true
     end
   end
   def user_team?
     if self.status == "Team"
-      validates :level_name, presence: false
+      self.level_name = "Lnclass"
+      self.matricule = "#{self.contact}P"
       self.city_name = "HQ-Lnclass"
     end
   end
@@ -89,12 +102,19 @@ class User < ApplicationRecord
       self.slug = "civ #{self.full_name}"
     end
   end
+
+
+
+  ################## BEFORE SAVE  #########
+  before_save do
+    self.contact            = contact.strip.squeeze(" ")
+    self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
+    self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
+  end
   ################## LOGGED  #########
   def logged
     @logged || self.matricule || self.email
   end
-
-
 
   ################## SLUG ###############
   extend FriendlyId
@@ -104,12 +124,7 @@ class User < ApplicationRecord
     full_name_changed?
   end
 
-  ################## BEFORE SAVE  #########
-  before_save do
-    self.contact            = contact.strip.squeeze(" ")
-    self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
-    self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
-  end
+  
     
   ################## Logged params  #########
 
