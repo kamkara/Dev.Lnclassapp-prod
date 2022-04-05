@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount ActiveAnalytics::Engine, at: "analytics" 
   root to:'homepage#index'
   get "feed", to:'home#index'
-  get "team", to:'home#team'
+  get "t", to:'home#team'
   
   
   #Course
