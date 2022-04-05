@@ -18,4 +18,5 @@ class ErrorsController < ApplicationController
     respond_to do |format|
       format.html { render status: 500 }
     end
+  end
 end
