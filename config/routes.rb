@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+ 
   mount ActiveAnalytics::Engine, at: "analytics" 
   root to:'homepage#index'
   get "feed", to:'home#index'
@@ -58,8 +58,13 @@ Rails.application.routes.draw do
                 :registration =>  'inscription',
                 :edit =>          'edit'
               }
+
+ 
+   match "/404", to:'errors#not_found', via: :all
+  match "/422", to:'errors#unacceptable', via: :all
+  match "/500", to:'errors#internal_error', via: :all
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
-end
+end            

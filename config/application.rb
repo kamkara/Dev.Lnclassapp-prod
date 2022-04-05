@@ -15,6 +15,11 @@ module Play
     
     # Add detect web wrawler 
     config.middleware.use Rack::CrawlerDetect
+
+    #Errors routing
+    config.exceptions_app = self.routes 
+
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
