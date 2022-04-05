@@ -47,7 +47,7 @@
         <label class="label">La Tle:</label>
         <div class="control">
           <div class="select">
-            <%= f.text_field :level_name,  placeholder:"Tle A1 , A2 ou D ...", class:"input rounded-md" %>
+            <%= f.select :level_name, @levels.map{|level| [level.title]},  placeholder:"Tle A1 , A2 ou D ...", class:"input rounded-md" %>
           </div>
         </div>
       </div>
