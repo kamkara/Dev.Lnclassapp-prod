@@ -1,6 +1,6 @@
 
-
-<div class="col-md-6 py-5">
+<div class="columns w-full">
+<div class="column py-5 w-1/2">
     <!-- feed material -->
     <%= form_for [@exercice, @question] do |f| %>
     <div class="border rounded-md  p-2">
@@ -26,7 +26,7 @@
     </div>
     <% end %>
 </div>
-<div class="col-md-6 py-5">
+<div class="md:column w-1/2">
 <!-- feed course -->
     <div class="questions-column mt-8">
        
@@ -38,4 +38,6 @@
             <p>Ajouter les questions!</p>
         <% end %>
     </div>
+</div>
+
 </div>
