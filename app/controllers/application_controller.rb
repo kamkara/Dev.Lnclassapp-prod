@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   
+  before_action :find_cityEreas
   before_action :find_levels
     #before_action :find_schools
-    #before_action :find_cityEreas
 
 
     #After sign in
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
     end
       
     def find_cityEreas
-      #@city_ereas = CityErea.all
+      @city_ereas = CityErea.all
     end
 
   end
