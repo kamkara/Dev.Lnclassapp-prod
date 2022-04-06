@@ -1,4 +1,5 @@
 class CityEreasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_city_erea, only: %i[ show edit update destroy ]
 
   # GET /city_ereas or /city_ereas.json
@@ -21,11 +22,11 @@ class CityEreasController < ApplicationController
 
   # POST /city_ereas or /city_ereas.json
   def create
-    @city_erea = CityErea.new(city_erea_params)
+    @city_erea = current_user.city_ereas.build(city_erea_params)
 
     respond_to do |format|
       if @city_erea.save
-        format.html { redirect_to city_erea_url(@city_erea), notice: "City erea was successfully created." }
+        format.html { redirect_to city_ereas_path notice: "City erea was successfully created." }
         format.json { render :show, status: :created, location: @city_erea }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,7 +61,7 @@ class CityEreasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_city_erea
-      @city_erea = CityErea.find(params[:id])
+      @city_erea = CityErea.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

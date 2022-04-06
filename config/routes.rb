@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :city_ereas
- 
+  
   mount ActiveAnalytics::Engine, at: "analytics" 
   root to:'homepage#index'
   get "feed", to:'home#index'
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   #Course
   get "courses-show", to:"courses#show"
   get "course-list", to:"courses#index"
-  get "lesson", to:"courses#new"
+  get "new-course", to:"courses#new"
   
 
   #Dashboard
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
     get "exercices", to:"exercices#index"
     post '/publish', to: 'exercices#publish'
   end
-
+  
   
   resources :exercices, except: [:new, :show, :edit, :create, :update, :destroy, :index] do
     member do
@@ -42,8 +41,9 @@ Rails.application.routes.draw do
             :results,
             :levels,
             :materials,
+            :city_ereas,
             :materials, execept: %i[new]
-
+  
   ######### USER DATA #########
   devise_scope :user do
     get 'profile/edit'    => 'devise/registrations#edit',   :as => :edit_user_registration
