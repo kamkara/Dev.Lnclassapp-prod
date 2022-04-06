@@ -7,8 +7,9 @@ class Exercice < ApplicationRecord
   belongs_to :user
   belongs_to :course
   has_many :results, dependent: :destroy
-  #has_many :notes
-    
+  
+
+  
   validates_with ExerciceValidator, on: :create
   validates_with PublicationValidator, on: :update
   

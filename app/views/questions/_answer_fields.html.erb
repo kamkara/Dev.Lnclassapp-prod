@@ -1,11 +1,13 @@
+<div class="mt-8">
+  <%= f.fields_for :answers do |answer| %>
+    <!-- answer field-->
+    <div class="">
+      <%= answer.radio_button :correct, checked_value: true, unchecked_value: false, id:"correct_answer"  %>
+      <%= answer.label :correct , "Correcte ?", id:"correct_answer" %>
+    </div>
 
-<%= f.fields_for :answers do |answer| %>
-  <!-- answer field-->
-  <div class="correct_select">
-    <%= answer.check_box :correct, checked_value: true, unchecked_value: false %>
-    <%= answer.label :correct , "Reponse correcte ?" %>
-  </div>
-  <!-- answer field-->
-  <%= answer.text_field :content, placeholder: "> proposition ...",
-   class:"ln--field input rounded-md" %>
-<% end %>
+    <!-- answer field-->
+    <%= answer.text_field :content, placeholder: "> proposition ...",
+    class:"ln--field input rounded-md" %>
+  <% end %>
+</div>

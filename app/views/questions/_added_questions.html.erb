@@ -1,9 +1,9 @@
 <% record.questions.each do |q| %>
-    <div class="border rounded-md bg-white p-2 my-2">
+    <div class="card border rounded-md p-2 my-2">
         <div class="added-content ">
-            <p class="font-bold text-md"><%= q.content %></p>
+            <h3 class="font-bold"><%= q.content %></h3>
             <% q.answers.each do |a| %>
-                <div class="rounded-md bg-white ">
+                <div class="rounded-md bg-white my-2">
                     <p class="border rounded-md p-2   <%= " bg-green-200 font-bold" if a.correct %>">
                         <%= a.content %>
                     </p>
@@ -11,7 +11,7 @@
                 </div>
             <% end %>
         </div>
-        <%= button_to "Supprimé", {action: 'destroy', exercice_id: q.exercice.id, id: q.id},
-         method: 'delete', class:" button is-info border px-2 bg-gray-100 rounded-md" %>
+        <%= button_to "Retirer", {action: 'destroy', exercice_id: q.exercice.id, id: q.id},
+         method: 'delete', class:" button is-danger is-small rounded-md" %>
     </div>
 <% end %>
