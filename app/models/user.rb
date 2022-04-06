@@ -18,9 +18,7 @@ class User < ApplicationRecord
 
   attr_writer :logged
   #enum :status, student: "student", teacher: "teacher", team: "team", default: "student"
-  
-  
-  
+
   
   ################## VALIDATES  ###############
   #validate :user_data_present?,  on: :create
