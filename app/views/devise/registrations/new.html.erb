@@ -35,22 +35,23 @@
     </div>
     
     
+    <div class="columns">
       <!-- City name -->
-      <div class="field">
+      <div class="column">
         <label class="label">La ville:</label>
-        <div class="control">
-            <%= f.text_field :city_name,  placeholder:"Votre ville ...", class:"input rounded-md" %>
-        </div>
+          <div class="select is-rounded">
+            <%= f.select :city_name, @city_ereas.map{|city_erea| [city_erea.title]},  placeholder:"Tle A1 , A2 ou D ...", class:"input rounded-md" %>
+          </div>
+        
       </div>
       <!--Level name -->
-      <div class="field mx-2">
+      <div class="column mx-2 ">
         <label class="label">La Tle:</label>
-        <div class="control">
-          <div class="select">
+          <div class="select is-rounded">
             <%= f.select :level_name, @levels.map{|level| [level.title]},  placeholder:"Tle A1 , A2 ou D ...", class:"input rounded-md" %>
           </div>
-        </div>
       </div>
+    </div>
     
     <!-- Role -->
     <%= f.hidden_field :status, value:"Student" %>  
