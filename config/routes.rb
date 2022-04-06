@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :city_ereas
  
   mount ActiveAnalytics::Engine, at: "analytics" 
   root to:'homepage#index'
