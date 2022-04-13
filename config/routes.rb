@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   get "course-list", to:"courses#index"
   get "new-course", to:"courses#new"
   
-
+  
   #Dashboard
   get "dashboard-admin", to:'dashboard#index'
   get "setting", to:'dashboard#home'
   get "new-materials", to:"materials#new"
   get "new-levels", to:"levels#new"
+  get "dashboard", to:'admin#index'
   
   
   resources :courses do
