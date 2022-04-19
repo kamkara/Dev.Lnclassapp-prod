@@ -30,9 +30,7 @@ gem "tailwindcss-rails"
 ############### Deploy    ############
 gem 'platform_sh_rails'
 gem 'unicorn', '~> 6.1', :group => :production
-
-
-
+gem 'aws-sdk-s3', '~> 1.113', :group => :production
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
