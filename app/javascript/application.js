@@ -120,5 +120,3 @@ import "@rails/actiontext"
     scrollTo(document.documentElement);
   };
 })();
-import "trix"
-import "@rails/actiontext"
