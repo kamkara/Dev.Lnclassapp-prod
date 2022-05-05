@@ -12,6 +12,13 @@
  *
  
  */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+
+
+
 @import url("css/animate.css");
 @import url("css/tailwind.css");
 @import url("css/tables.css");

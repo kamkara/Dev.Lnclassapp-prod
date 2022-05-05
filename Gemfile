@@ -23,10 +23,10 @@ gem 'jquery-rails'
 
 
 ############### Styles    ############
-
+gem 'bootstrap', '~> 5.1.3'
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
-
+gem "bootstrap_form", "~> 5.0"
 ############### Deploy    ############
 gem 'platform_sh_rails'
 gem 'unicorn', '~> 6.1', :group => :production
@@ -63,7 +63,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+ gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
