@@ -102,14 +102,13 @@ class User < ApplicationRecord
     end
   end
 
-
-
   ################## BEFORE SAVE  #########
   before_save do
     self.contact            = contact.strip.squeeze(" ")
     self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
     self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
   end
+  
   ################## LOGGED  #########
   def logged
     @logged || self.matricule || self.email
