@@ -119,4 +119,4 @@ import "@rails/actiontext"
   document.querySelector(".back-to-top").onclick = () => {
     scrollTo(document.documentElement);
   };
-})();
+})();import * as bootstrap from "bootstrap"
