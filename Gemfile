@@ -21,12 +21,7 @@ gem 'active_analytics'
 gem 'crawler_detect'
 gem 'jquery-rails'
  
-############### Styles    ############
-gem 'cssbundling-rails'
 
-
-
-gem 'bootstrap', '~> 5.1.3'
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
 gem "bootstrap_form", "~> 5.0"
